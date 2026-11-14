@@ -1,14 +1,16 @@
-
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Settings:
-    # Basic application information
     APP_NAME = "DevMate"
     APP_VERSION = "1.0.0"
     ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 
     # AI model configuration
-    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+    GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
     # Database configuration
     DATABASE_URL = os.getenv(
@@ -16,6 +18,4 @@ class Settings:
         "sqlite:///./devmate.db"
     )
 
-
-# Create a settings object
 settings = Settings()
